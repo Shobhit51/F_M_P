@@ -1,0 +1,109 @@
+/* DietForm.css */
+
+.calories-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  margin: 80px auto 20px; /* Adjust margin to provide space below the navbar */
+  padding: 20px;
+  border: 1px solid #ccc; /* Add border for outline */
+  border-radius: 8px;
+  background: linear-gradient(135deg, #222831 0%, #393e46 100%); /* Add gradient background */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
+}
+
+.form-title-i {
+  color: #fa2f2f; /* Change title color */
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.form-label {
+  margin-bottom: 10px;
+  color: #f2f2f2; /* Change label color */
+  font-size: 16px;
+  font-family: Arial, sans-serif; /* Example of changing font-family */
+  font-weight: bold; /* Example of setting font-weight */
+  text-transform: uppercase; /* Example of setting text-transform */
+  display: block; /* Ensure labels are displayed as blocks */
+}
+
+.form-input,
+.form-select {
+  width: calc(100% - 22px); /* Adjust width to account for padding and border */
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #f2f2f2; /* Change input background color */
+  color: #000000; /* Change input text color */
+}
+
+.form-input:focus,
+.form-select:focus {
+  outline: none; /* Remove outline when input is focused */
+  border-color: #f96d00; /* Change border color when input is focused */
+}
+
+.form-button {
+  width: calc(100% - 22px); /* Adjust width to account for padding and border */
+  padding: 10px;
+  background: linear-gradient(135deg, #ff0202 0%, #ff0202 100%); /* Add gradient background */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 18px;
+}
+
+.form-button:hover {
+  background: linear-gradient(135deg, #66c4ff 0%, #66c4ff  100%); /* Add gradient background on hover */
+}
+
+.result {
+  margin-top: 40px;
+  background: linear-gradient(135deg, #222831 0%, #393e46 100%);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px; /* Add margin to the bottom */
+}
+
+
+.result table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.result table td {
+  padding: 15px 10px;
+  color: #f2f2f2;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.result table td:first-child {
+  font-weight: bold;
+}
+
+.result table td:last-child {
+  text-align: right;
+}
+
+.result table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Highlight table rows on hover */
+.result table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Add transition effect for smoother hover */
+.result table tbody tr:hover td {
+  transition: background-color 0.3s ease;
+}

@@ -1,0 +1,1174 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/*===== VARIABLES CSS =====*/
+:root {
+  --header-height: 3rem;
+
+  /*========== Colors ==========*/
+  --first-color: #DA2535;
+  --first-color-alt: #C42130;
+  --first-color-send: #DE3B49;
+  --title-color: #161212;
+  --text-color: #5B5757;
+  --text-color-light: #8F8A8A;
+  --body-color: #FEFBFB;
+  --container-color: #FFF;
+
+  /*========== Font and typography ==========*/
+  --body-font: 'Poppins', sans-serif;
+  --biggest-font-size: 2rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1.125rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+
+  /*========== Font weight ==========*/
+  --font-semi-bold: 600;
+  --font-bold: 700;
+
+  /*========== Margenes ==========*/
+  --mb-1: .5rem;
+  --mb-2: 1rem;
+  --mb-3: 1.5rem;
+  --mb-4: 2rem;
+  --mb-5: 2.5rem;
+  --mb-6: 3rem;
+  /*========== z index ==========*/
+
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+@media screen and (min-width: 968px){
+  :root{
+    --biggest-font-size: 3rem;
+    --h2-font-size: 1.75rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+  }
+}
+
+
+/*========== BASE ==========*/
+*,::before,::after{
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+/*========== Variables Dark theme ==========*/
+body.dark-theme{
+  --first-color-send: #161212;
+  --title-color: #F3F1F1;
+  --text-color: #D1C7C8;
+  --body-color: #251D1E;
+  --container-color: #302728;
+}
+
+/*========== Button Dark/Light ==========*/
+.change-theme{
+  position: absolute;
+  right: 1.5rem;
+  top: 2.2rem;
+  display: flex;
+  color: var(--title-color);
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+body{
+  margin: var(--header-height) 0 0 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+h1,h2,h3,ul,p{
+  margin: 0;
+}
+
+h1,h2,h3{
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+}
+
+ul{
+  padding: 0;
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+}
+
+/*========== CLASS CSS ==========*/
+.section{
+  padding: 4rem 0 2rem;
+}
+
+.section-title, .section-title-center{
+  font-size: var(--h2-font-size);
+  color: var(--title-color);
+  text-align: center;
+  margin-bottom: var(--mb-3);
+}
+
+/*========== LAYOUT ==========*/
+.l-main{
+  overflow: hidden;
+}
+
+.bd-container{
+  max-width: 968px;
+  width: calc(100% - 3rem);
+  margin-left: var(--mb-3);
+  margin-right: var(--mb-3);
+}
+
+.bd-grid{
+  display: grid;
+  gap: 1.5rem;
+}
+
+.l-header{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+  background-color: var(--body-color);
+}
+
+/*========== NAV ==========*/
+.nav{
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px){
+  .nav__menu{
+    position: fixed;
+    top: -100%;
+    left: 0;
+    right: 0;
+    width: 90%;
+    margin: 0 auto;
+    padding: 2rem 0 0;
+    text-align: center;
+    background-color: var(--body-color);
+    transition: .4s;
+    box-shadow: 0 0 4px rgba(0,0,0,.1);
+    border-radius: 2rem;
+    z-index: var(--z-fixed);
+  }
+}
+
+.nav__item{
+  margin-bottom: var(--mb-3);
+}
+
+.nav__link, .nav__logo, .nav__toggle{
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+
+.nav__logo:hover{
+  color: var(--first-color);
+}
+
+.nav__link{
+  transition: .3s;
+}
+
+.nav__link:hover{
+  color: var(--first-color);
+}
+
+.nav__toggle{
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+/* Show menu */
+.show-menu{
+  top: calc(var(--header-height) + 1rem);
+}
+
+/* Active menu link */
+.active-link{
+  position: relative;
+}
+
+.active-link::before{
+  content: '';
+  position: absolute;
+  bottom: -.75rem;
+  left: 45%;
+  width: 5px;
+  height: 5px;
+  background-color: var(--title-color);
+  border-radius: 50%;
+}
+
+/* Change background header */
+.scroll-header{
+  box-shadow: 0 1px 4px rgba(0,0,0,.1);
+}
+
+/* Scroll top */
+.scrolltop{
+  position: fixed;
+  right: 1rem;
+  bottom: -20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .3rem;
+  background: rgba(218,37,53,.5);
+  border-radius: .4rem;
+  z-index: var(--z-tooltip);
+  transition: .4s;
+  visibility: hidden;
+}
+
+.scrolltop:hover{
+  background-color: var(--first-color);
+}
+
+.scrolltop__icon{
+  font-size: 1.5rem;
+  color: var(--body-color);
+}
+
+.show-scroll{
+  visibility: visible;
+  bottom: 1.5rem;
+}
+
+/*========== HOME ==========*/
+.home__container{
+  row-gap: .5rem;
+}
+
+.home__img{
+  width: 280px;
+  justify-self: center;
+}
+
+.home__title{
+  font-size: var(--biggest-font-size);
+  font-weight: var(--font-bold);
+  margin-bottom: var(--mb-2);
+}
+
+.home__description{
+  margin-bottom: var(--mb-3);
+}
+
+/*========== BUTTONS ==========*/
+.button{
+  display: inline-block;
+  background-color: var(--first-color);
+  color: #fff;
+
+  font-weight: var(--font-semi-bold);
+  transition: .3s;
+  
+  padding: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button:hover{
+  background-color: var(--first-color-alt);
+}
+
+.button-link{
+  background: none;
+  padding: 0;
+  color: var(--first-color);
+}
+
+.button-link:hover{
+  background-color: transparent;
+  color: var(--first-color-alt);
+}
+
+/*========== SHARE ==========*/
+.share__data{
+  text-align: center;
+}
+
+.share__description{
+  margin-bottom: var(--mb-2);
+}
+
+.share__img{
+  width: 280px;
+  justify-self: center;
+}
+
+/*========== DECORATION ==========*/
+.decoration__container{
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.decoration__data{
+  text-align: center;
+  padding: 1rem 1rem 2rem;
+  background-color: var(--container-color);
+  box-shadow: 0 2px 6px rgba(65,11,16,.15);
+  border-radius: 1rem;
+}
+
+.decoration__data:hover{
+  box-shadow: 0 3px 12px rgba(65,11,16,.15);
+}
+
+.decoration__img{
+  width: 180px;
+}
+
+.decoration__title{
+  font-size: var(--h3-font-size);
+  margin-bottom: var(--mb-1);
+}
+
+/*========== ACCESSORIES ==========*/
+.accessory__container{
+  grid-template-columns: repeat(2,1fr);
+  padding-bottom: 2rem;
+}
+
+.accessory__content{
+  position: relative;
+  display: grid;
+  padding: .25rem .75rem .75rem;
+  background-color: var(--container-color);
+  box-shadow: 0 2px 6px rgba(65,11,16,.15);
+  border-radius: 1rem;
+}
+
+.accessory__content:hover{
+  box-shadow: 0 3px 12px rgba(65,11,16,.15);
+}
+
+.accessory__img{
+  width: 110px;
+  justify-self: center;
+  margin-bottom: .25rem;
+}
+
+.accessory__title, .accessory__category{
+  text-align: center;
+}
+
+.accessory__title{
+  font-size: var(--normal-font-size);
+}
+
+.accessory__category{
+  font-size: var(--small-font-size);
+  margin-bottom: var(--mb-1);
+  color: var(--text-color-light);
+}
+
+.accessory__preci{
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+}
+
+.accessory__button{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  font-size: 1.25rem;
+  padding: .5rem .625rem;
+  border-radius: 1rem 0 1rem 0;
+}
+
+/*========== SEND GIFT ==========*/
+.send{
+  background-color: var(--first-color-send);
+}
+
+.send__title, .send__description{
+  color: #fff;
+}
+
+.send__description{
+  text-align: center;
+  margin-bottom: var(--mb-4);
+}
+
+.send__direction{
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: .5rem;
+  border-radius: .5rem;
+}
+
+.send__input{
+  width: 70%;
+  outline: none;
+  border: none;
+  font-size: var(--normal-font-size);
+  font-family: var(--body-font);
+}
+
+.send__input::placeholder{
+  font-family: var(--body-font);
+}
+
+.send__img{
+  width: 280px;
+  justify-self: center;
+}
+
+/*========== FOOTER ==========*/
+.footer__container{
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.footer__logo{
+  color: var(--title-color);
+}
+
+.footer__title{
+  margin-bottom: var(--mb-2);
+}
+
+.footer__logo, .footer__title{
+  font-size: var(--h3-font-size);
+}
+
+.footer__link{
+  display: inline-block;
+  margin-bottom: .75rem;
+  color: var(--text-color);
+}
+
+.footer__link:hover{
+  color: var(--first-color);
+}
+
+.footer__social{
+  font-size: 1rem;
+  color: var(--title-color);
+  margin-right: var(--mb-3);
+}
+
+.footer__social:hover{
+  color: var(--first-color);
+}
+
+.footer__copy{
+  text-align: center;
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+  margin-top: 4rem;
+}
+
+/*========== MEDIA QUERIES ==========*/
+
+/* For full-screen images on small screens */
+@media screen and (max-width: 359px){
+  .home__img,
+  .share__img,
+  .send__img{
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 576px){
+  .home__container,
+  .share__container,
+  .send__container{
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+  }
+
+  .home__container{
+    padding: 5rem 0 0;
+  }
+
+  .home__img{
+    order: 1;
+  }
+
+  .section-title-center,
+  .share__data,
+  .send__description{
+    text-align: initial;
+  }
+
+  .home__img,
+  .share__img,
+  .send__img{
+    width: 100%;
+  }
+  
+  .share__img{
+    order: -1;
+  }
+}
+
+@media screen and (min-width: 768px){
+  body{
+    margin: 0;
+  }
+
+  .section{
+    padding-top: 7rem;
+  }
+
+  .nav{
+    height: calc(var(--header-height) + 1.5rem);
+  }
+
+  .nav__list{
+    display: flex;
+    align-items: center;
+  }
+
+  .nav__item{
+    margin-left: var(--mb-5);
+    margin-bottom: 0;
+    padding: 2px;
+  }
+
+  .nav__toggle{
+    display: none;
+  }
+
+  .change-theme{
+    position: initial;
+    margin-left: var(--mb-4);
+  }
+
+  .home__container{
+    padding: 7rem 2rem 0;
+  }
+
+  .share__container{
+    padding: 0 2rem;
+  }
+
+  .accessory__container{
+    grid-template-columns: repeat(3,224px);
+    justify-content: center;
+  }
+
+  .accessory__content{
+    padding: .5rem 1.5rem 1.5rem;
+  }
+
+  .accessory__img{
+    width: 120px;
+    margin-bottom: var(--mb-1);
+  }
+
+  .accessory__title, .accessory__category{
+    text-align: initial;
+  }
+
+  .accessory__button{
+    padding: .75rem;
+  }
+
+  .send{
+    background: none;
+  }
+
+  .send__container{
+    background-color: var(--first-color-send);
+    padding: 2rem;
+    border-radius: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 968px){
+  .bd-container{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .home__img,
+  .share__img,
+  .send__img{
+    width: 469px;
+  }
+
+  .home__container,
+  .share__container,
+  .send__container{
+    column-gap: 5rem;
+  }
+}
+
+
+
+.nut{
+  display: flex;
+  justify-content : center;
+  align-items : center;
+  height : "80vh";
+}
+
+.form-nut{
+  width: 100%;
+  padding: 16px 8px;
+  margin: 8px 0;
+  font-size: 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+Table{
+height: 100px;
+margin: 25px 0;
+font-size: 1rem;
+font-family: sans-serif;
+min-width: 450px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+tr,th,td{
+  border: 1px solid;
+  padding:2.5px;
+}
+
+/* ........................................................................................bmi */
+
+
+.container-bmi{ 
+	max-width: 400px; 
+	margin: 0 auto; 
+	padding: 20px; 
+} 
+
+
+
+input[type='number'] { 
+	width: 100%; 
+	padding: 10px; 
+	font-size: 16px; 
+} 
+
+
+.result-i{ 
+	margin-top: 20px; 
+	padding: 10px; 
+	background-color: #f0f0f0; 
+	border-radius: 4px; 
+} 
+
+.bmi-value { 
+	font-weight: bold; 
+} 
+
+.bmi-message { 
+	color: #4c00ff; 
+	font-weight: bold; 
+}
+
+
+
+
+/* CSS */
+.form {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #6cb2eb;
+}
+
+.btn {
+  padding: 10px;
+  color: #fff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #218838;
+}
+
+.btn:active {
+  background-color: #1e7e34;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Update the CSS in the RunningTimer.css file */
+
+.running-timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.timer-container {
+  background: linear-gradient(45deg, #8bffb7, #e4e4e6);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  
+}
+
+.timer-display {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.timer-display h1 {
+  font-size: 4em;
+  color: #151414;
+  text-shadow: 2px 2px 4px rgba(156, 139, 139, 0.2);
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+input[type="number"],
+select {
+  padding: 12px;
+  font-size: 18px;
+  margin-right: 10px;
+  border-radius: 10px;
+  border: 2px solid #ccc;
+}
+
+input[type="number"]:focus,
+select:focus {
+  outline: none;
+  border-color: #008CBA;
+}
+
+.controls {
+  text-align: center;
+}
+
+button {
+  padding: 12px 24px;
+  font-size: 18px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.start-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.start-btn:hover {
+  background-color: #45a049;
+}
+
+.stop-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.stop-btn:hover {
+  background-color: #d32f2f;
+}
+
+.reset-btn {
+  background-color: #008CBA;
+  color: white;
+}
+
+.reset-btn:hover {
+  background-color: #007baa;
+}
+
+
+@keyframes rotateIndicator {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.running .visual-indicator:before {
+  animation: rotateIndicator linear infinite;
+}
+
+/* Update the CSS in the RunningTimer.css file */
+
+
+/* Update the CSS in the RunningTimer.css file */
+
+/* Update the CSS in the RunningTimer.css file */
+/* Update the CSS in the RunningTimer.css file */
+
+.visual-indicator {
+  position: relative;
+  width: 20rem; /* Width of the progress box */
+  height: 50px; /* Height of the progress box */
+  margin: 20px auto;
+  text-align: center;
+  border: 4px solid #eee; /* Border style */
+  border-radius: 10px; /* Border radius for rounded corners */
+  background: linear-gradient(to bottom, #dc0808, #f30505); /* Gradient background */
+  box-shadow: 0 0 10px rgba(239, 3, 3, 0.1); /* Box shadow for depth */
+}
+
+.progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1rem; /* Height of the flat progress bar */
+  background-color: #ec1d0a; /* Beautiful color for the progress bar */
+  border-radius: 0; /* No rounded corners */
+  transition: width 0.5s ease; /* Smooth transition for width changes */
+}
+
+.percentage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff; /* Text color */
+}
+
+
+.meals {
+  display: flex;
+}
+
+img {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  margin: 0 1rem;
+  max-width: 300px;
+  box-shadow: 0 4px 8px 2px rgba(77, 77, 77, 0.15);
+}
+
+ul {
+  list-style: none;
+}
+
+.instructions {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/*  */
+
+
+/* 
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f3f3f3;
+} */
+
+.App {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+section {
+  margin: 2rem 0 1rem 0;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+input {
+  text-align: center;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background-color: #7f21eb;
+  color: #f3f3f3;
+  border: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #6c13d1;
+  cursor: pointer;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.nut-ul {
+  display: flex;
+  width: 35rem;
+  justify-content: space-evenly;
+}
+
+.meals {
+  display: flex;
+}
+
+.imagemeal {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  margin: 0 1rem;
+  max-width: 300px;
+  box-shadow: 0 4px 8px 2px rgba(77, 77, 77, 0.15);
+}
+
+.nut-ul {
+  list-style: none;
+}
+
+.instructions {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.recip  {
+  text-decoration: none;
+  background-color: #7f21eb;
+  color: #f3f3f3;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+}
+
+.recipe :hover {
+  background-color: #6c13d1;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1024px) {
+  .meals {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nutrients ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+
+
+
+
+/*-----------------------------------------------------------------*/
+.recipe-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.recipe-app h1 {
+  font-family: sans-serif;
+  color: #fff;
+}
+.recipe-div {
+  display: flex;
+  flex-direction: colume;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.recipe-input input {
+  outline: none;
+  border-radius: 4px;
+  border: none;
+  margin: 10px;
+  padding: 10px;
+  font-size: large;
+}
+.recipe-input button {
+  outline: none;
+  border-radius: 4px;
+  border: none;
+  margin: 10px;
+  padding: 10px;
+  font-size: large;
+}
+
+.recipe {
+  width: 22%;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: #d3d3d3;
+  padding: 10px;
+  position: relative;
+  border-radius: 4px;
+  box-shadow: 2rem 3rem 5rem #aaa;
+}
+
+.recipe h2 {
+  background-color: rgba(161, 161, 161, 0.7);
+  border-radius: 2px;
+  padding: 10px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  text-shadow: 0 0.5rem 0.5rem #151414;
+  color: #fff;
+}
+
+.recipe img {
+  border-radius: 4px;
+  object-fit: cover;
+  height: 200px;
+}
+
+.recipe a {
+  font-size: 14px;
+  color: #40b48e;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.recipe button {
+  font-size: 15px;
+  outline: none;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #40b48e;
+  border: none;
+  border-radius: 2px;
+  padding: 10px;
+}
+
+.ingredient-list {
+  margin-top: 1rem;
+  background-color: #f0f0f0;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.ingredient-list li {
+  margin: 0.5rem 0;
+}
+
+.ingredient-text {
+  font-size: 1.5rem;
+  color: #080707;
+}
+
+.ingredient-weight {
+  color: #f9f9f9;
+  font-size: 1.3rem;
+}
+
+
+/*----resume--*/
+.resume-section {
+  position: relative ;
+  padding-top: 110px ;
+  padding-bottom: 30px ;
+  background-image: var(--section-background-color) ;
+  color: rgb(255, 255, 255) ;
+}
+
+.resume {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  justify-content: center;
+}
+
+.resume-left {
+  padding-right: 80px ;
+}
+
+.resume-right {
+  padding-left: 80px ;
+}
